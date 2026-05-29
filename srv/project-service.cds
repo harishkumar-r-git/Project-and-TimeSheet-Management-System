@@ -5,6 +5,8 @@ using { my.project_timesheet_mgmt as pdb } from '../db/ptm-schema';
 @requires: ['developer', 'projectManager', 'admin']
 service projectService {
 
+
+
   @cds.redirection.target
   @(restrict: [
     { grant: 'READ', to: ['developer', 'projectManager', 'admin'] },
