@@ -1,0 +1,32 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed May 20 2026 20:28:05 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "Local CAP",
+    "metadataFilename": "",
+    "serviceUrl": "http://localhost:4004/odata/v4/time-sheet/",
+    "appName": "employee_timesheets_dashboard",
+    "appTitle": "Employee TimeSheet Management",
+    "appDescription": "Weekly timesheet entry (Draft); My timesheets list with status; My assigned work packages",
+    "appNamespace": "ns",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.148.0",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": false,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "timeSheets"
+      },
+      {
+        "type": "Navigation Entity",
+        "value": "Entries"
+      }
+    ],
+    "launchText": "To launch the generated app, start your CAP project:  and navigate to the following location in your browser:\n\nhttp://localhost:4004/ns.employeetimesheetsdashboard/index.html"
+  }
+}

@@ -1,0 +1,52 @@
+{
+    "schema_version": 1,
+    "instance_min_count": 1,
+    "instance_max_count": 5,
+    "scaling_rules": [
+        {
+            "metric_type": "cpuutil",
+            "breach_duration_secs": 60,
+            "threshold": 75,
+            "operator": ">=",
+            "cool_down_secs": 60,
+            "adjustment": "+1"
+        },
+        {
+            "metric_type": "cpuutil",
+            "breach_duration_secs": 60,
+            "threshold": 2,
+            "operator": "<=",
+            "cool_down_secs": 60,
+            "adjustment": "-1"
+        },
+        {
+            "metric_type": "throughput",
+            "breach_duration_secs": 60,
+            "threshold": 50,
+            "operator": ">=",
+            "cool_down_secs": 60,
+            "adjustment": "+1"
+        },
+        {
+			"metric_type": "responsetime",
+			"breach_duration_secs": 60,
+			"threshold": 100,
+			"operator": ">=",
+			"cool_down_secs": 60,
+			"adjustment": "+1"
+		}
+    ],
+    "schedules": {
+        "timezone": "Asia/Kolkata",
+        "recurring_schedule": [
+            {
+                "start_time": "09:00",
+                "end_time": "18:00",
+                "days_of_week": [1,2,3,4,5],
+                "instance_min_count": 2,
+                "instance_max_count": 10,
+                "initial_instance_min_count": 2
+            }
+        ]
+    }
+}

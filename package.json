@@ -1,0 +1,72 @@
+{
+  "name": "Project_and_TimeSheet_Management_System",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/hana": "^2.8.0",
+    "@sap-cloud-sdk/http-client": "^4.7.0",
+    "@sap-cloud-sdk/resilience": "^4.7.0",
+    "@sap/cds": "^9",
+    "@sap/xsenv": "^6.2.1",
+    "@sap/xssec": "^4",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4.0",
+    "@sap/cds-dk": "^9.9.1",
+    "cds-plugin-ui5": "^0.13.6"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-project_manager_dashboard": "cds watch --open ns.projectmanagerdashboard/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-employee_timesheets_dashboard": "cds watch --open ns.employeetimesheetsdashboard/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "cds": {
+    "server": {
+      "index": true
+    },
+    "requires": {
+      "invoice-generator": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "PTM_INVOICE_DEST"
+        }
+      },
+      "auth": {
+        "kind": "mocked"
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "PTM_logging": {
+          "kind": "application-logs",
+          "plan": "lite"
+        },
+        "Project_and_TimeSheet_Management_System-autoscaler": {
+          "vcap": {
+            "label": "app-autoscaler"
+          },
+          "plan": "standard"
+        },
+        "Project_and_TimeSheet_Management_System-job-scheduler": {
+          "kind": "jobscheduler",
+          "plan": "free"
+        }
+      },
+      "destinations": true,
+      "html5-repo": true,
+      "workzone": true,
+      "application-logging": true
+    }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/project_manager_dashboard",
+    "app/employee_timesheets_dashboard",
+    "app/project_manager_dashboard",
+    "app/employee_timesheets_dashboard"
+  ]
+}

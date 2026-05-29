@@ -1,0 +1,57 @@
+{
+  "xsappname": "Project_and_TimeSheet_Management_System-5ad9de21trial-dev",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.developer",
+      "description": "developer"
+    },
+    {
+      "name": "$XSAPPNAME.projectManager",
+      "description": "projectManager"
+    },
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "admin"
+    },
+    {
+      "name": "$XSAPPNAME.JobScheduler",
+      "description": "JobScheduler"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "developer",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.developer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "projectManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.projectManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "admin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.admin"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "JobScheduler",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.JobScheduler"
+      ],
+      "attribute-references": []
+    }
+  ]
+}

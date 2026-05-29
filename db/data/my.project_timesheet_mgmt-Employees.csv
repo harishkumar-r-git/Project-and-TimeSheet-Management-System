@@ -1,0 +1,11 @@
+ID,EmpNo,Name,Email,isProjectManager,department_ID,HourlyRate,Skills,createdAt,createdBy,modifiedAt,modifiedBy
+e1111111-1111-1111-1111-111111111111,E001,Harish Kumar,harishkumar.r@laderatechnology.com,true,d1a11111-1111-1111-1111-111111111111,50,NodeJS;CAP;Fiori,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111112,E002,Rahul Sharma,rahul@company.com,true,d1a11111-1111-1111-1111-111111111117,45,Java;Spring,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111113,E003,Priya Nair,priya@company.com,false,d1a11111-1111-1111-1111-111111111116,40,Testing;Automation,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111114,E004,Amit Singh,amit@company.com,false,d1a11111-1111-1111-1111-111111111113,60,Finance;SAP,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111115,E005,Sneha Patel,sneha@company.com,false,d1a11111-1111-1111-1111-111111111115,38,DigitalMarketing,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111116,E006,Vikram Iyer,vikram@company.com,false,d1a11111-1111-1111-1111-111111111114,55,Operations,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111117,E007,Arjun Reddy,arjun@company.com,false,d1a11111-1111-1111-1111-111111111117,48,NodeJS;React,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111118,E008,Kavya Menon,kavya@company.com,false,d1a11111-1111-1111-1111-111111111118,52,Security,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111119,E009,Rohit Gupta,rohit@company.com,false,d1a11111-1111-1111-1111-111111111119,35,CustomerSupport,2026-05-19,anonymous,2026-05-20,anonymous
+e1111111-1111-1111-1111-111111111120,E010,Meera Das,meera@company.com,false,d1a11111-1111-1111-1111-111111111116,42,QA;ManualTesting,2026-05-19,anonymous,2026-05-20,anonymous

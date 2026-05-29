@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json.schemastore.org/sap-manifest",
+  "_version": "1.83.0",
+  "sap.app": {
+    "id": "ns.employeetimesheetsdashboard",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "44f4c55a-cceb-474e-a380-afdf58d11860"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/time-sheet/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "project_manager_dashboard-display": {
+          "semanticObject": "project_manager_dashboard",
+          "action": "display",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.148.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ns.employeetimesheetsdashboard.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "timeSheetsList",
+          "target": [
+            "timeSheetsList"
+          ]
+        },
+        {
+          "pattern": "timeSheets({key}):?query:",
+          "name": "timeSheetsObjectPage",
+          "target": [
+            "timeSheetsList",
+            "timeSheetsObjectPage"
+          ]
+        },
+        {
+          "pattern": "timeSheets({key})/Entries({key2}):?query:",
+          "name": "timeSheetEntriesObjectPage",
+          "target": [
+            "timeSheetsList",
+            "timeSheetsObjectPage",
+            "timeSheetEntriesObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "timeSheetsList": {
+          "type": "Component",
+          "id": "timeSheetsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/timeSheets",
+              "variantManagement": "Page",
+              "navigation": {
+                "timeSheets": {
+                  "detail": {
+                    "route": "timeSheetsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "timeSheetsObjectPage": {
+          "type": "Component",
+          "id": "timeSheetsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/timeSheets",
+              "navigation": {
+                "Entries": {
+                  "detail": {
+                    "route": "timeSheetEntriesObjectPage"
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/timeSheets({key})"
+        },
+        "timeSheetEntriesObjectPage": {
+          "type": "Component",
+          "id": "timeSheetEntriesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/timeSheets/Entries"
+            }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/timeSheets({key})/Entries({key2})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "Project_and_TimeSheet_Management_System.service"
+  }
+}

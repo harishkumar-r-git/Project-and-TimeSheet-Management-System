@@ -1,0 +1,20 @@
+###  Reading Projects
+GET http://localhost:4004/odata/v4/project/projects
+Accept: application/json
+
+###  Reading startProject
+POST http://localhost:4004/odata/v4/project/projects(ID='p1111111-1111-1111-1111-111111111112')/startProject
+Accept: application/json
+
+###  Reading ApprovedHoursPerWP
+GET http://localhost:4004/odata/v4/project/approvedHoursPerWP
+Accept: application/json
+
+###  Reading getBudgetVariance
+GET http://localhost:4004/odata/v4/project/project/getBudgetVariance(ID='p1111111-1111-1111-1111-111111111114')
+Accept: application/json
+
+###  Reading submitTimeSheet
+POST http://localhost:4004/odata/v4/time-sheet/timeSheets(ID='t1111111-1111-1111-1111-111111111111')/submitTimeSheet
+Accept: application/json
+
